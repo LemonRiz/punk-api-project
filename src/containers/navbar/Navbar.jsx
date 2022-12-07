@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Searchbox from "../../components/Searchbox/Searchbox";
+import "./Navbar.scss";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <div className="navbar">
+      <Searchbox />
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;

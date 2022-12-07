@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./CardList.scss";
+import Card from "../Card/Card";
+import Beers from "../../data";
 
 const CardList = () => {
   return (
-    <div>CardList</div>
-  )
-}
+    <div>
+      <Card name={Beers.name} />
+    </div>
+  );
+};
 
-export default CardList
+export default CardList;

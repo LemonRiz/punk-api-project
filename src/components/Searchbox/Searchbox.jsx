@@ -1,8 +1,14 @@
-import React from 'react'
+import {React} from 'react'
 
-const Searchbox = () => {
+const Searchbox = ({label, searchTerm, handleInput}) => {
   return (
-    <div>Searchbox</div>
+    <input
+    type = "text"
+    name={label}
+    value={searchTerm}
+    onInput={handleInput}
+    className="navbar__searchbox"
+    />
   )
 }
 

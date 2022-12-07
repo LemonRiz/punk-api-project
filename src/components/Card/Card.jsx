@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./Card.scss";
 
-const Card = () => {
+const Card = ({ name, image, info }) => {
   return (
-    <div>Card</div>
-  )
-}
+    <div className="beerCard">
+      <img className="beerCard_ing" src={image} />
+      <h2 className="beerCard__name">{name}</h2>
+      <p className="beerCard__info">{info}</p>
+    </div>
+  );
+};
 
-export default Card
+export default Card;
