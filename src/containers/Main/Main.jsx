@@ -7,14 +7,17 @@ const Main = () => {
   const beers = beer.map((drinks) => {
     return (
       <Card
-        id={drinks.id}
+        key={drinks.id}
         name={drinks.name}
         image={drinks.image_url}
         info={drinks.description}
+        first_brewed={drinks.first_brewed}
+        abv={drinks.abv}
+        ph={drinks.ph}
       />
     );
   });
-  return { beers };
+  return <div className="alcohols">{beers}</div>;
 };
 
 export default Main;

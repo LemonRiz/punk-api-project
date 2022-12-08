@@ -1,1 +1,8 @@
 @use "../../assets/sass/variables" as *;
+
+.alcohols {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30vw;
+  height: 20vh;
+}

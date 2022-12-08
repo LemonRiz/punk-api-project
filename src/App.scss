@@ -1,5 +1,7 @@
 @use "./assets/sass/variables" as *;
 
-.render{
+.booze {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
