@@ -1,18 +1,16 @@
 import "./App.css";
 import { React, useState } from "react";
-import Navbar from "./containers/navbar/Navbar";
-import CardList from "./components/CardList/CardList";
+import NavBar from "./containers/NavBar/NavBar";
 import Main from "./containers/Main/Main";
-import Beers from "./data";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div>
-      <Main />
-      <Navbar label="search"/>
-      <CardList />
+    <div className="render">
+      <h1>Punk API</h1>
+      <NavBar className="render__nav" label="search" />
+      <Main className="render__main" />
     </div>
   );
 };
