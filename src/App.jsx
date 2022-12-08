@@ -3,7 +3,6 @@ import { React, useState } from "react";
 import NavBar from "./containers/NavBar/NavBar";
 import Main from "./containers/Main/Main";
 import beers from "./data";
-import Card from "./components/Card/Card";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,10 +17,6 @@ const App = () => {
     return beersLower.includes(searchTerm);
   });
 
-  const displayBeers = filteredBeers.map((beer) => {
-    <Card name={beer.name} />;
-  });
-
   return (
     <div className="render">
       <h1>Punk API</h1>
@@ -32,7 +27,7 @@ const App = () => {
           handleInput={handleInput}
           searchTerm={searchTerm}
         />
-        <Main/>
+        <Main beers={filteredBeers} />
       </div>
     </div>
   );

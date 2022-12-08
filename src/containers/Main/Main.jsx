@@ -1,10 +1,9 @@
 import React from "react";
 import "./Main.scss";
 import Card from "./../../components/Card/Card";
-import beer from "../../data";
 
-const Main = () => {
-  const beers = beer.map((drinks) => {
+const Main = ({beers}) => {
+  const beersJSX = beers.map((drinks) => {
     return (
       <Card
         key={drinks.id}
@@ -17,7 +16,7 @@ const Main = () => {
       />
     );
   });
-  return <div className="alcohols">{beers}</div>;
+  return <div className="alcohols">{beersJSX}</div>;
 };
 
 export default Main;
