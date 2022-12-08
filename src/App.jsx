@@ -7,20 +7,28 @@ import beers from "./data";
 const App = () => {
   const [beerList, setBeerList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [alcoholVol, setAlcoholVol] = useState(false);
+  const [classicRange, setClassicRange] = useState(false);
+  const [acidity, setAcidity] = useState(false);
 
   const getBeers = async () => {
-    const url = `https://api.punkapi.com/v2/beers`;
+    const url = `https://api.punkapi.com/v2/beersgit`;
     const result = await fetch(url);
     const beerData = await result.json();
-    setBeerList = beerData;
+    setBeerList(beerData);
   };
+
+  useEffect(() => {
+    getBeers();
+  }, []);
+  console.log(beerList);
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
   };
 
-  const filteredBeers = beers.filter((search) => {
+  const filteredBeers = beerList.filter((search) => {
     const beersLower = search.name.toLowerCase();
     return beersLower.includes(searchTerm);
   });
