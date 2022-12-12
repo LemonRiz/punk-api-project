@@ -2,6 +2,16 @@
 
 .booze {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  &__main {
+    padding: 15px;
+    width: 60%;
+    height: 150vh;
+  }
+}
+
+.nav {
+  width: 25%;
+  height: 25vh;
+  top: 0;
 }

@@ -1,6 +1,11 @@
 @use "../../assets/sass/variables" as *;
 
-.navbar{
-    border: 2px solid red;
-    background: fixed rebeccapurple;
+.navbar {
+  border: 2px solid red;
+  background: rebeccapurple;
+  background-attachment: scroll;
+  color: white;
+  position: fixed;
+  text-align: center;
+  border-radius: 6%;
 }
