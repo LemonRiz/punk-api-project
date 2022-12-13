@@ -5,7 +5,7 @@ import Card from "./../../components/Card/Card";
 const Main = ({beers}) => {
   const beersJSX = beers.map((drinks) => {
     return (
-      <Card
+      <Card className="beergrid"
         key={drinks.id}
         name={drinks.name}
         image={drinks.image_url}

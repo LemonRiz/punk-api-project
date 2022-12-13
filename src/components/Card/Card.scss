@@ -2,13 +2,14 @@
 
 .beerCard {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  border: solid 2px red;
-  max-width: 900px;
+  border: solid 2px plum;
+  border-radius: 15%;
+  max-width: 450px;
   white-space: normal;
+  margin: 3px;
   &__info {
     background-color: lavender;
   }

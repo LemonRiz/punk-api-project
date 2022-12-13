@@ -2,29 +2,26 @@ import "./App.scss";
 import { React, useState, useEffect } from "react";
 import NavBar from "./containers/NavBar/NavBar";
 import Main from "./containers/Main/Main";
-import beers from "./data";
 
 const App = () => {
   const [beerList, setBeerList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterChoice, setFilterChoice] = useState("");
-  // const [acidity, setAcidity] = useState(false);
+  const [filterChoice, setFilterChoice] = useState([]);
+  const [numberBeers, setNumberBeers] = useState([25]);
 
-  const getBeers = async () => {
-    let url = "";
-    if (filterChoice == "High ABV") {
-      url = `https://api.punkapi.com/v2/beers?per_page=80&abv_gt=6`;
-    } else if (filterChoice == "Classic Range") {
-      url = `https://api.punkapi.com/v2/beers?per_page=80&brewed_before=12-2010`;
-    } else {
-      url = `https://api.punkapi.com/v2/beers?per_page=80`;
+  const getBeers = async (numberBeers) => {
+    let url = `https://api.punkapi.com/v2/beers?per_page=${numberBeers}`;
+    if (filterChoice.includes("ABV")) {
+      url += `&abv_gt=6`;
+    } else if (filterChoice.includes("CLR")) {
+      url += `&brewed_before=12-2010`;
     }
 
     const result = await fetch(url);
     const beerData = await result.json();
     setBeerList(beerData);
 
-    if (filterChoice == "High Acidity") {
+    if (filterChoice.includes("HAC")) {
       const highAcidBeer = beerData.filter((beer) => {
         const phBeer = beer.ph < 4;
         return phBeer;
@@ -36,13 +33,15 @@ const App = () => {
   };
 
   useEffect(() => {
-    getBeers();
-  }, [filterChoice]);
-  console.log(beerList);
-
+    getBeers(numberBeers);
+  }, [filterChoice, numberBeers]);
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
+  };
+
+  const handleChange = (event) => {
+    setNumberBeers(event.target.value);
   };
 
   const filteredBeers = beerList.filter((search) => {
@@ -54,13 +53,14 @@ const App = () => {
     <div className="render">
       <h1>Punk API</h1>
       <NavBar
-          className="nav"
-          label="search"
-          handleInput={handleInput}
-          searchTerm={searchTerm}
-          filterChoice={filterChoice}
-          setFilterChoice={setFilterChoice}
-        />
+        className="nav"
+        label="search"
+        handleInput={handleInput}
+        searchTerm={searchTerm}
+        filterChoice={filterChoice}
+        setFilterChoice={setFilterChoice}
+        handleChange={handleChange}
+      />
       <div className="booze">
         <Main className="booze__main" beers={filteredBeers} />
       </div>
