@@ -11,7 +11,6 @@ const App = () => {
   const [numberBeers, setNumberBeers] = useState([25]);
   // const [acidity, setAcidity] = useState(false);
 
-  console.log("filtered Choice", filterChoice);
 
   const getBeers = async (numberBeers) => {
     let url = `https://api.punkapi.com/v2/beers?per_page=${numberBeers}`;
@@ -35,7 +34,7 @@ const App = () => {
       setBeerList(beerData);
     }
   };
-  console.log(numberBeers);
+
   useEffect(() => {
     getBeers(numberBeers);
   }, [filterChoice, numberBeers]);
