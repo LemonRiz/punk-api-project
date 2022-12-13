@@ -1,13 +1,17 @@
 @use "../../assets/sass/variables" as *;
 
 .beerCard {
-  align-self: flex-end;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
   align-items: center;
   border: solid 2px red;
   max-width: 900px;
+  white-space: normal;
+  &__info {
+    background-color: lavender;
+  }
 }
 
 img {

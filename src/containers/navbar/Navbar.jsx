@@ -6,7 +6,7 @@ import FilterList from "../../components/FilterList/FilterList";
 const Navbar = ({ handleInput, searchTerm, filterChoice, setFilterChoice }) => {
   return (
     <div className="navbar">
-      <p>Search:</p>
+      <p className="navbar__text">Search:</p>
       <Searchbox handleInput={handleInput} searchTerm={searchTerm} />
       <FilterList
         filterChoice={filterChoice}

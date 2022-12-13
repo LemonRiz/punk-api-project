@@ -7,9 +7,11 @@ const Card = ({ name, image, info, first_brewed, abv, ph }) => {
       <img className="beerCard_img" src={image} />
       <h2 className="beerCard__name">{name}</h2>
       <p className="beerCard__info">{info}</p>
-      <p>First Brewed: {first_brewed}</p>
-      <p>ABV: {abv}</p>
-      <p>pH: {ph}</p>
+      <ul>
+        <li>First Brewed: {first_brewed}</li>
+        <li>ABV: {abv}</li>
+        <li>pH: {ph}</li>
+      </ul>
     </div>
   );
 };
