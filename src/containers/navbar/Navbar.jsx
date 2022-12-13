@@ -13,14 +13,15 @@ const Navbar = ({
 }) => {
   return (
     <div className="navbar">
+      <p className="navbar__text">Search:</p>
+      <Searchbox handleInput={handleInput} searchTerm={searchTerm} />
       <RangeInput
         className="navbar__range"
         min={5}
         max={80}
         handleChange={handleChange}
+        label={`Number of Beers shown:`}
       />
-      <p className="navbar__text">Search:</p>
-      <Searchbox handleInput={handleInput} searchTerm={searchTerm} />
       <FilterList
         filterChoice={filterChoice}
         setFilterChoice={setFilterChoice}
