@@ -13,8 +13,8 @@ const App = () => {
 
   console.log("filtered Choice", filterChoice);
 
-  const getBeers = async () => {
-    let url = "https://api.punkapi.com/v2/beers?";
+  const getBeers = async (numberBeers) => {
+    let url = `https://api.punkapi.com/v2/beers?per_page=${numberBeers}`;
     if (filterChoice.includes("ABV")) {
       url += `&abv_gt=6`;
     } else if (filterChoice.includes("CLR")) {
@@ -35,10 +35,10 @@ const App = () => {
       setBeerList(beerData);
     }
   };
-
+  console.log(numberBeers);
   useEffect(() => {
-    getBeers();
-  }, [filterChoice]);
+    getBeers(numberBeers);
+  }, [filterChoice, numberBeers]);
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
@@ -63,6 +63,7 @@ const App = () => {
         searchTerm={searchTerm}
         filterChoice={filterChoice}
         setFilterChoice={setFilterChoice}
+        handleChange={handleChange}
       />
       <div className="booze">
         <Main className="booze__main" beers={filteredBeers} />

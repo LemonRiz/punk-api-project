@@ -1,7 +1,7 @@
 import React from "react";
 import "./RangeInput.scss";
 
-const RangeInput = ({ min = 25, max = 80, label, id, onChange, value }) => {
+const RangeInput = ({ min = 25, max = 80, label, id, handleChange, value }) => {
   return (
     <div className="range-input">
       <label htmlFor={id}>{label}</label>
@@ -11,7 +11,7 @@ const RangeInput = ({ min = 25, max = 80, label, id, onChange, value }) => {
         min={min}
         max={max}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
       />
     </div>
   );

@@ -4,10 +4,22 @@ import "./NavBar.scss";
 import FilterList from "../../components/FilterList/FilterList";
 import RangeInput from "../../components/RangeInput/RangeInput";
 
-const Navbar = ({ handleInput, searchTerm, filterChoice, setFilterChoice }) => {
+const Navbar = ({
+  
+  handleInput,
+  searchTerm,
+  filterChoice,
+  setFilterChoice,
+  handleChange,
+}) => {
   return (
     <div className="navbar">
-      <RangeInput className="navbar__range" min={5} max={80}/>
+      <RangeInput
+        className="navbar__range"
+        min={5}
+        max={80}
+        handleChange={handleChange}
+      />
       <p className="navbar__text">Search:</p>
       <Searchbox handleInput={handleInput} searchTerm={searchTerm} />
       <FilterList
