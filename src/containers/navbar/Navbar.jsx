@@ -5,7 +5,6 @@ import FilterList from "../../components/FilterList/FilterList";
 import RangeInput from "../../components/RangeInput/RangeInput";
 
 const Navbar = ({
-  
   handleInput,
   searchTerm,
   filterChoice,
