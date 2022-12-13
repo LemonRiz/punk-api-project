@@ -7,15 +7,17 @@ import beers from "./data";
 const App = () => {
   const [beerList, setBeerList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterChoice, setFilterChoice] = useState("");
+  const [filterChoice, setFilterChoice] = useState([]);
   const [numberBeers, setNumberBeers] = useState([25]);
-  const [acidity, setAcidity] = useState(false);
+  // const [acidity, setAcidity] = useState(false);
+
+  console.log("filtered Choice", filterChoice);
 
   const getBeers = async () => {
     let url = "https://api.punkapi.com/v2/beers?";
-    if (filterChoice == "High ABV") {
+    if (filterChoice.includes("ABV")) {
       url += `&abv_gt=6`;
-    } else if (filterChoice == "Classic Range") {
+    } else if (filterChoice.includes("CLR")) {
       url += `&brewed_before=12-2010`;
     }
 
@@ -23,7 +25,7 @@ const App = () => {
     const beerData = await result.json();
     setBeerList(beerData);
 
-    if (filterChoice == "High Acidity") {
+    if (filterChoice.includes("HAC")) {
       const highAcidBeer = beerData.filter((beer) => {
         const phBeer = beer.ph < 4;
         return phBeer;
@@ -37,8 +39,6 @@ const App = () => {
   useEffect(() => {
     getBeers();
   }, [filterChoice]);
-  console.log(beerList);
-
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);

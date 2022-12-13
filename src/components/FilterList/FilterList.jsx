@@ -7,19 +7,22 @@ const FilterList = ({ filterChoice, setFilterChoice }) => {
     <div className="list">
       <FilterItems
         className="list__text"
-        label="High ABV"
+        label="ABV"
+        name="High Alcohol Vol"
         filterChoice={filterChoice}
         setFilterChoice={setFilterChoice}
       />
       <FilterItems
         className="list__text"
-        label="Classic Range"
+        label="CLR"
+        name="Classic Range"
         filterChoice={filterChoice}
         setFilterChoice={setFilterChoice}
       />
       <FilterItems
         className="list__text"
-        label="High Acidity"
+        label="HAC"
+        name="High Acidity"
         filterChoice={filterChoice}
         setFilterChoice={setFilterChoice}
       />
