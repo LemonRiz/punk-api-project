@@ -8,16 +8,15 @@ const App = () => {
   const [beerList, setBeerList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterChoice, setFilterChoice] = useState("");
-  // const [acidity, setAcidity] = useState(false);
+  const [numberBeers, setNumberBeers] = useState([25]);
+  const [acidity, setAcidity] = useState(false);
 
   const getBeers = async () => {
-    let url = "";
+    let url = "https://api.punkapi.com/v2/beers?";
     if (filterChoice == "High ABV") {
-      url = `https://api.punkapi.com/v2/beers?per_page=80&abv_gt=6`;
+      url += `&abv_gt=6`;
     } else if (filterChoice == "Classic Range") {
-      url = `https://api.punkapi.com/v2/beers?per_page=80&brewed_before=12-2010`;
-    } else {
-      url = `https://api.punkapi.com/v2/beers?per_page=80`;
+      url += `&brewed_before=12-2010`;
     }
 
     const result = await fetch(url);
@@ -45,6 +44,10 @@ const App = () => {
     setSearchTerm(cleanInput);
   };
 
+  const handleChange = (event) => {
+    setNumberBeers(event.target.value);
+  };
+
   const filteredBeers = beerList.filter((search) => {
     const beersLower = search.name.toLowerCase();
     return beersLower.includes(searchTerm);
@@ -54,13 +57,13 @@ const App = () => {
     <div className="render">
       <h1>Punk API</h1>
       <NavBar
-          className="nav"
-          label="search"
-          handleInput={handleInput}
-          searchTerm={searchTerm}
-          filterChoice={filterChoice}
-          setFilterChoice={setFilterChoice}
-        />
+        className="nav"
+        label="search"
+        handleInput={handleInput}
+        searchTerm={searchTerm}
+        filterChoice={filterChoice}
+        setFilterChoice={setFilterChoice}
+      />
       <div className="booze">
         <Main className="booze__main" beers={filteredBeers} />
       </div>

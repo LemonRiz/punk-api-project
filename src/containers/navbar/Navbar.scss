@@ -8,7 +8,8 @@
   position: fixed;
   text-align: center;
   border-radius: 6%;
-  &__text {
+  &__text,
+  &__range {
     background: rebeccapurple;
   }
 }
