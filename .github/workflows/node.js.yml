@@ -20,6 +20,4 @@ jobs:
       run: npm run build
     - name: reploy react to gh-pages
       run: npm run deploy
-
-
-process.env.CI = true
+ 
