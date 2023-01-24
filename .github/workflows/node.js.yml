@@ -9,6 +9,8 @@ on:
 
 jobs:
   test:
+    env:
+      CI: false
   name: Deployment
   runs-on: ubuntu-latest
   steps:
@@ -20,4 +22,3 @@ jobs:
       run: npm run build
     - name: reploy react to gh-pages
       run: npm run deploy
- 
