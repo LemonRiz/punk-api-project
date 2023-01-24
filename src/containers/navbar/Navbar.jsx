@@ -1,6 +1,6 @@
+import "./NavBar.scss";
 import React from "react";
 import Searchbox from "../../components/Searchbox/Searchbox";
-import "./NavBar.scss";
 import FilterList from "../../components/FilterList/FilterList";
 import RangeInput from "../../components/RangeInput/RangeInput";
 
